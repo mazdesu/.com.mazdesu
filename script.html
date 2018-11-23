@@ -1,0 +1,29 @@
+<script type='text/javascript'>
+//<![CDATA[
+// Image to Staticaly
+var images = document.getElementsByTagName('img');
+  for (var i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace(/.*?:\/\//g , "https://cdn.staticaly.com/img/");
+  };
+
+// Anti AdBlock
+function downloadJSAtOnload(){var e=document.createElement("script");e.src="https://cdn.staticaly.com/gh/mazdesu/.com.mazdesu/master/anti-adblock.js",document.body.appendChild(e)}window.addEventListener?window.addEventListener("load",downloadJSAtOnload,!1):window.attachEvent?window.attachEvent("onload",downloadJSAtOnload):window.onload=downloadJSAtOnload;
+
+// lazy Load Images
+!function(window){var $q=function(q,res){if(document.querySelectorAll){res=document.querySelectorAll(q)}else{var d=document,a=d.styleSheets[0]||d.createStyleSheet();a.addRule(q,'f:b');for(var l=d.all,b=0,c=[],f=l.length;b<f;b++)l[b].currentStyle.f&&c.push(l[b]);a.removeRule(0);res=c}return res},addEventListener=function(evt,fn){window.addEventListener?this.addEventListener(evt,fn,false):(window.attachEvent)?this.attachEvent('on'+evt,fn):this['on'+evt]=fn},_has=function(obj,key){return Object.prototype.hasOwnProperty.call(obj,key)};function loadImage(el,fn){var img=new Image(),src=el.getAttribute('data-src');img.onload=function(){if(!!el.parent)el.parent.replaceChild(img,el)else el.src=src;fn?fn():null}img.src=src}function elementInViewport(el){var rect=el.getBoundingClientRect()return(rect.top>=0&&rect.left>=0&&rect.top<=(window.innerHeight||document.documentElement.clientHeight))}var images=new Array(),query=$q('img.lazy'),processScroll=function(){for(var i=0;i<images.length;i++){if(elementInViewport(images[i])){loadImage(images[i],function(){images.splice(i,i)})}}};for(var i=0;i<query.length;i++){images.push(query[i])};processScroll();addEventListener('scroll',processScroll)}(this);
+
+// Lazy Load AdSense
+var lazyadsense=!1;window.addEventListener("scroll",function(){(0!=document.documentElement.scrollTop&&!1===lazyadsense||0!=document.body.scrollTop&&!1===lazyadsense)&&(!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(e,a)}(),lazyadsense=!0)},!0);
+
+// Google AdSense In Post
+var element = document.getElementById("insertad");
+element.innerHTML = "<ins class='adsbygoogle' data-ad-client='ca-pub-5881791013651593' data-ad-format='horizontal' data-ad-slot='3418948292' style='display:block'/>";
+var newScript = document.createElement("script");
+var inlineScript = document.createTextNode("(adsbygoogle = window.adsbygoogle || []).push({});");
+newScript.appendChild(inlineScript);
+element.appendChild(newScript);
+
+// Table of Content di Posting
+$(document).ready(function(){$(".post-body a").on("click",function(o){if(""!==this.hash){o.preventDefault();var t=this.hash;$("html, body").animate({scrollTop:$(t).offset().top},600,function(){window.location.hash=t})}})});
+//]]>
+</script>
